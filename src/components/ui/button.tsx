@@ -21,13 +21,13 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variantStyles = {
       primary:
-        "bg-gradient-to-r from-[#087BFF] to-[#00D4FF] text-black font-semibold shadow-[0_0_25px_rgba(8,123,255,0.4)] hover:shadow-[0_0_35px_rgba(0,212,255,0.65)] hover:scale-[1.02] active:scale-[0.98]",
+        "bg-gradient-to-r from-[#0066FF] to-[#00B4D8] text-white font-semibold shadow-[0_4px_20px_rgba(0,102,255,0.35)] hover:shadow-[0_6px_25px_rgba(0,102,255,0.5)] hover:scale-[1.02] active:scale-[0.98]",
       secondary:
-        "bg-[#0B0D12] text-white border border-white/10 hover:border-[#00D4FF]/50 hover:bg-[#121622] hover:text-[#00D4FF] hover:shadow-[0_0_20px_rgba(0,212,255,0.2)]",
+        "bg-white dark:bg-[#0B0D12] text-slate-800 dark:text-white border border-slate-200 dark:border-white/10 hover:border-[#0066FF]/50 hover:bg-slate-50 dark:hover:bg-[#121622] hover:text-[#0066FF] dark:hover:text-[#00D4FF] shadow-sm",
       outline:
-        "bg-transparent text-white border border-white/20 hover:border-[#087BFF] hover:bg-[#087BFF]/10 hover:shadow-[0_0_20px_rgba(8,123,255,0.25)]",
+        "bg-transparent text-slate-800 dark:text-white border border-slate-300 dark:border-white/20 hover:border-[#0066FF] hover:bg-blue-50/50 dark:hover:bg-[#087BFF]/10",
       ghost:
-        "bg-transparent text-[#A1A1AA] hover:text-white hover:bg-white/[0.04]",
+        "bg-transparent text-slate-600 dark:text-[#A1A1AA] hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/[0.04]",
     };
 
     return (
@@ -37,7 +37,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {variant === "primary" && (
-          <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/35 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
+          <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
         )}
         <span className="relative z-10 flex items-center gap-2">{children}</span>
       </button>

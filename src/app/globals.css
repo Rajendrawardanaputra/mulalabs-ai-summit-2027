@@ -1,8 +1,28 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
+  --background: #ffffff;
+  --background-secondary: #ffffff;
+  --background-card: #ffffff;
+  --foreground: #090d16;
+  --foreground-muted: #64748b;
+  
+  --accent-primary: #0066ff;
+  --accent-secondary: #00b4d8;
+  
+  --border-subtle: rgba(15, 23, 42, 0.08);
+  --border-accent: rgba(0, 102, 255, 0.3);
+  
+  --glow-primary: rgba(0, 102, 255, 0.2);
+  --glow-secondary: rgba(0, 180, 216, 0.2);
+}
+
+.dark {
   --background: #050505;
   --background-secondary: #0b0d12;
+  --background-card: #0b0d12;
   --foreground: #ffffff;
   --foreground-muted: #a1a1aa;
   
@@ -31,7 +51,6 @@
 }
 
 html {
-  color-scheme: dark;
   scroll-behavior: smooth;
 }
 
@@ -40,34 +59,47 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Adaptive Cyber Grid */
 .bg-grid-cyber {
   background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+.dark .bg-grid-cyber {
   background-image: 
     linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
 }
 
-.glow-primary {
-  box-shadow: 0 0 60px -15px var(--glow-primary);
-}
-
-.glow-secondary {
-  box-shadow: 0 0 60px -15px var(--glow-secondary);
-}
-
+/* Gradients */
 .gradient-accent {
   background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
 }
 
 .gradient-text-accent {
+  background: linear-gradient(135deg, #0066ff 0%, #00b4d8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .gradient-text-accent {
   background: linear-gradient(135deg, #087bff 0%, #00d4ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-hero {
+  background: linear-gradient(180deg, #090d16 30%, #334155 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .gradient-text-hero {
   background: linear-gradient(180deg, #ffffff 40%, rgba(255, 255, 255, 0.6) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

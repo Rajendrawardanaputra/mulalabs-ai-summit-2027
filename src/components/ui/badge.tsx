@@ -13,11 +13,11 @@ export function Badge({
 }: BadgeProps) {
   const variantStyles = {
     accent:
-      "bg-[#087BFF]/10 text-[#087BFF] border-[#087BFF]/30 shadow-[0_0_15px_rgba(8,123,255,0.2)]",
+      "bg-blue-50 dark:bg-[#087BFF]/10 text-[#0066FF] dark:text-[#087BFF] border-blue-200 dark:border-[#087BFF]/30 shadow-sm",
     cyan:
-      "bg-[#00D4FF]/10 text-[#00D4FF] border-[#00D4FF]/30 shadow-[0_0_15px_rgba(0,212,255,0.2)]",
-    muted: "bg-white/[0.04] text-[#A1A1AA] border-white/[0.08]",
-    outline: "bg-transparent text-white border-white/20",
+      "bg-cyan-50 dark:bg-[#00D4FF]/10 text-[#00A3FF] dark:text-[#00D4FF] border-cyan-200 dark:border-[#00D4FF]/30 shadow-sm",
+    muted: "bg-slate-100 dark:bg-white/[0.04] text-slate-600 dark:text-[#A1A1AA] border-slate-200 dark:border-white/[0.08]",
+    outline: "bg-transparent text-slate-800 dark:text-white border-slate-300 dark:border-white/20",
   };
 
   return (

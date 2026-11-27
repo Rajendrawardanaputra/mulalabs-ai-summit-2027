@@ -42,33 +42,33 @@ export function Footer() {
   const navT = TRANSLATIONS[language].nav;
 
   return (
-    <footer className="relative border-t border-white/[0.08] bg-[#020202] pt-20 pb-12 overflow-hidden text-[#A1A1AA]">
-      <div className="absolute inset-0 bg-grid-cyber opacity-20 pointer-events-none" />
+    <footer className="relative border-t border-slate-200 dark:border-white/[0.08] bg-slate-100 dark:bg-[#020202] pt-20 pb-12 overflow-hidden text-slate-600 dark:text-[#A1A1AA]">
+      <div className="absolute inset-0 bg-grid-cyber opacity-15 pointer-events-none" />
 
       <Container className="relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
               <Link href="/" className="flex items-center gap-3 mb-6 group inline-block">
-                <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-[#087BFF] to-[#00D4FF] p-[1px] shadow-[0_0_20px_rgba(8,123,255,0.4)]">
-                  <div className="w-full h-full bg-[#050505] rounded-[11px] flex items-center justify-center">
-                    <Cpu className="w-5 h-5 text-[#00D4FF]" />
+                <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-[#0066FF] to-[#00B4D8] p-[1px] shadow-sm">
+                  <div className="w-full h-full bg-white dark:bg-[#050505] rounded-[11px] flex items-center justify-center">
+                    <Cpu className="w-5 h-5 text-[#0066FF] dark:text-[#00D4FF]" />
                   </div>
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-bold text-base tracking-wider text-white font-mono flex items-center gap-1.5">
+                  <span className="font-bold text-base tracking-wider text-slate-900 dark:text-white font-mono flex items-center gap-1.5">
                     MULALABS
-                    <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#087BFF]/20 text-[#00D4FF] border border-[#087BFF]/40 font-mono">
+                    <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-100 dark:bg-[#087BFF]/20 text-[#0066FF] dark:text-[#00D4FF] border border-blue-200 dark:border-[#087BFF]/40 font-mono font-semibold">
                       2027
                     </span>
                   </span>
-                  <span className="text-[10px] text-[#A1A1AA] tracking-widest uppercase font-mono">
+                  <span className="text-[10px] text-slate-500 dark:text-[#A1A1AA] tracking-widest uppercase font-mono">
                     AI Summit
                   </span>
                 </div>
               </Link>
 
-              <p className="text-sm text-[#A1A1AA] font-light leading-relaxed max-w-sm mb-6">
+              <p className="text-sm text-slate-600 dark:text-[#A1A1AA] font-light leading-relaxed max-w-sm mb-6">
                 {t.desc}
               </p>
 
@@ -77,7 +77,7 @@ export function Footer() {
                   href="https://twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-[#A1A1AA] hover:text-[#00D4FF] hover:border-[#00D4FF]/40 transition-all"
+                  className="w-8 h-8 rounded-lg bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] flex items-center justify-center text-slate-600 dark:text-[#A1A1AA] hover:text-[#0066FF] dark:hover:text-[#00D4FF] hover:border-[#0066FF]/40 transition-all shadow-sm"
                   aria-label="Twitter X"
                 >
                   <TwitterIcon className="w-3.5 h-3.5" />
@@ -86,7 +86,7 @@ export function Footer() {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-[#A1A1AA] hover:text-[#087BFF] hover:border-[#087BFF]/40 transition-all"
+                  className="w-8 h-8 rounded-lg bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] flex items-center justify-center text-slate-600 dark:text-[#A1A1AA] hover:text-[#0066FF] dark:hover:text-[#087BFF] hover:border-[#0066FF]/40 transition-all shadow-sm"
                   aria-label="LinkedIn"
                 >
                   <LinkedinIcon className="w-3.5 h-3.5" />
@@ -95,7 +95,7 @@ export function Footer() {
                   href="https://github.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-[#A1A1AA] hover:text-white hover:border-white/20 transition-all"
+                  className="w-8 h-8 rounded-lg bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] flex items-center justify-center text-slate-600 dark:text-[#A1A1AA] hover:text-slate-900 dark:hover:text-white hover:border-slate-300 dark:hover:border-white/20 transition-all shadow-sm"
                   aria-label="GitHub"
                 >
                   <GithubIcon className="w-3.5 h-3.5" />
@@ -103,44 +103,44 @@ export function Footer() {
               </div>
             </div>
 
-            <div className="mt-8 text-xs font-mono text-[#00D4FF] flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="mt-8 text-xs font-mono text-[#0066FF] dark:text-[#00D4FF] flex items-center gap-2 font-semibold">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>{t.themeLabel}</span>
             </div>
           </div>
 
           <div className="lg:col-span-2">
-            <span className="text-xs font-mono text-white uppercase tracking-wider block mb-4 font-semibold">
+            <span className="text-xs font-mono text-slate-900 dark:text-white uppercase tracking-wider block mb-4 font-semibold">
               {t.exploreCol}
             </span>
             <ul className="space-y-2.5 text-xs font-mono">
               <li>
-                <a href="#about" className="text-[#A1A1AA] hover:text-[#00D4FF] transition-colors">
+                <a href="#about" className="text-slate-600 dark:text-[#A1A1AA] hover:text-[#0066FF] dark:hover:text-[#00D4FF] transition-colors">
                   {navT.about}
                 </a>
               </li>
               <li>
-                <a href="#highlights" className="text-[#A1A1AA] hover:text-[#00D4FF] transition-colors">
+                <a href="#highlights" className="text-slate-600 dark:text-[#A1A1AA] hover:text-[#0066FF] dark:hover:text-[#00D4FF] transition-colors">
                   {navT.highlights}
                 </a>
               </li>
               <li>
-                <a href="#speakers" className="text-[#A1A1AA] hover:text-[#00D4FF] transition-colors">
+                <a href="#speakers" className="text-slate-600 dark:text-[#A1A1AA] hover:text-[#0066FF] dark:hover:text-[#00D4FF] transition-colors">
                   {navT.speakers}
                 </a>
               </li>
               <li>
-                <a href="#agenda" className="text-[#A1A1AA] hover:text-[#00D4FF] transition-colors">
+                <a href="#agenda" className="text-slate-600 dark:text-[#A1A1AA] hover:text-[#0066FF] dark:hover:text-[#00D4FF] transition-colors">
                   {navT.agenda}
                 </a>
               </li>
               <li>
-                <a href="#sponsors" className="text-[#A1A1AA] hover:text-[#00D4FF] transition-colors">
+                <a href="#sponsors" className="text-slate-600 dark:text-[#A1A1AA] hover:text-[#0066FF] dark:hover:text-[#00D4FF] transition-colors">
                   {navT.sponsors}
                 </a>
               </li>
               <li>
-                <a href="#venue" className="text-[#A1A1AA] hover:text-[#00D4FF] transition-colors">
+                <a href="#venue" className="text-slate-600 dark:text-[#A1A1AA] hover:text-[#0066FF] dark:hover:text-[#00D4FF] transition-colors">
                   {navT.venue}
                 </a>
               </li>
@@ -148,27 +148,27 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <span className="text-xs font-mono text-white uppercase tracking-wider block mb-4 font-semibold">
+            <span className="text-xs font-mono text-slate-900 dark:text-white uppercase tracking-wider block mb-4 font-semibold">
               {t.governanceCol}
             </span>
             <ul className="space-y-2.5 text-xs font-mono">
               <li>
-                <a href="#about" className="text-[#A1A1AA] hover:text-white transition-colors">
+                <a href="#about" className="text-slate-600 dark:text-[#A1A1AA] hover:text-slate-900 dark:hover:text-white transition-colors">
                   AI Ethics Charter
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-[#A1A1AA] hover:text-white transition-colors">
+                <a href="#about" className="text-slate-600 dark:text-[#A1A1AA] hover:text-slate-900 dark:hover:text-white transition-colors">
                   Terms of Attendance
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-[#A1A1AA] hover:text-white transition-colors">
+                <a href="#about" className="text-slate-600 dark:text-[#A1A1AA] hover:text-slate-900 dark:hover:text-white transition-colors">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-[#A1A1AA] hover:text-white transition-colors">
+                <a href="#about" className="text-slate-600 dark:text-[#A1A1AA] hover:text-slate-900 dark:hover:text-white transition-colors">
                   Code of Conduct
                 </a>
               </li>
@@ -176,23 +176,23 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <span className="text-xs font-mono text-white uppercase tracking-wider block mb-4 font-semibold">
+            <span className="text-xs font-mono text-slate-900 dark:text-white uppercase tracking-wider block mb-4 font-semibold">
               {t.secretariatCol}
             </span>
-            <div className="space-y-3 text-xs font-mono text-[#A1A1AA]">
+            <div className="space-y-3 text-xs font-mono text-slate-600 dark:text-[#A1A1AA]">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#087BFF] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#0066FF] shrink-0 mt-0.5" />
                 <span>JIExpo Kemayoran, Jakarta Utara, DKI Jakarta 10620</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#00D4FF] shrink-0" />
-                <a href="mailto:summit@mulalabs.ai" className="hover:text-white">
+                <Mail className="w-4 h-4 text-[#0066FF] dark:text-[#00D4FF] shrink-0" />
+                <a href="mailto:summit@mulalabs.ai" className="hover:text-slate-900 dark:hover:text-white">
                   summit@mulalabs.ai
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#087BFF] shrink-0" />
-                <a href="mailto:partnerships@mulalabs.ai" className="hover:text-white">
+                <Mail className="w-4 h-4 text-[#0066FF] shrink-0" />
+                <a href="mailto:partnerships@mulalabs.ai" className="hover:text-slate-900 dark:hover:text-white">
                   partnerships@mulalabs.ai
                 </a>
               </div>
@@ -200,14 +200,13 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#A1A1AA]/80">
+        <div className="pt-8 border-t border-slate-200 dark:border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500 dark:text-[#A1A1AA]/80">
           <div>
             © 2027 {EVENT_DETAILS.name}. {t.copyright}
           </div>
           <div className="flex items-center gap-4 text-[11px]">
             <span>Jakarta, October 14-16, 2027</span>
             <span>•</span>
-            <span className="text-white/40">Co-authored-by: OpenBot</span>
           </div>
         </div>
       </Container>

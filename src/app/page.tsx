@@ -11,7 +11,7 @@ import { Footer } from "@/components/layout/footer";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white selection:bg-[#087BFF]/30 selection:text-[#00D4FF] bg-grid-cyber relative">
+    <div className="min-h-screen bg-white dark:bg-[#050505] text-[#090d16] dark:text-white selection:bg-[#0066FF]/20 selection:text-[#0066FF] dark:selection:bg-[#087BFF]/30 dark:selection:text-[#00D4FF] bg-grid-cyber relative transition-colors duration-300">
       <Navbar />
 
       <main id="main-content" tabIndex={-1} className="outline-none">

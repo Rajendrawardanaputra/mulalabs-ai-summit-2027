@@ -42,7 +42,7 @@ export function SpeakersSection() {
       role: "Chief AI Scientist & Fellow",
       company: "AetherMind Labs (Zurich)",
       tag: "Opening Keynote",
-      tagColor: "#087BFF",
+      tagColor: "#0066FF",
       bio:
         language === "id"
           ? "Pelopor riset arsitektur neural multimodal dan model penalaran otonom skala besar yang telah mempublikasikan 40+ paper di NeurIPS dan ICML."
@@ -59,7 +59,7 @@ export function SpeakersSection() {
       role: "VP of Autonomous Robotics",
       company: "CyberCore Robotics (San Francisco)",
       tag: "Technical Keynote",
-      tagColor: "#00D4FF",
+      tagColor: "#00B4D8",
       bio:
         language === "id"
           ? "Memimpin rekayasa agen fisik cerdas dan robotika adaptif bertenaga spatial foundation models untuk industri manufaktur presisi."
@@ -76,7 +76,7 @@ export function SpeakersSection() {
       role: "Director of Quantum Machine Learning",
       company: "QuBit Dynamics (London)",
       tag: "Quantum Track",
-      tagColor: "#087BFF",
+      tagColor: "#0066FF",
       bio:
         language === "id"
           ? "Penemu algoritma optimasi kuantum hybrid untuk pemodelan iklim global dan penemuan senyawa material molekuler hemat energi."
@@ -92,7 +92,7 @@ export function SpeakersSection() {
       role: "Managing General Partner",
       company: "Horizon AI Ventures (Singapore)",
       tag: "Venture Arena Lead",
-      tagColor: "#00D4FF",
+      tagColor: "#00B4D8",
       bio:
         language === "id"
           ? "Investor kawakan yang telah membiayai 30+ unicorn AI dan memimpin pendanaan Mualalabs $500K Venture Arena untuk startup masa depan."
@@ -108,7 +108,7 @@ export function SpeakersSection() {
       role: "Head of AI Alignment & Safety",
       company: "OpenEthics Consortium (Stockholm)",
       tag: "Policy & Safety",
-      tagColor: "#087BFF",
+      tagColor: "#0066FF",
       bio:
         language === "id"
           ? "Arsitek kerangka kerja internasional untuk audit keamanan AI, verifikasi keandalan model otonom, dan mitigasi risiko eksistensial."
@@ -124,7 +124,7 @@ export function SpeakersSection() {
       role: "Chief Silicon Architect",
       company: "NeoSilicon Systems (Tokyo)",
       tag: "Hardware & Edge",
-      tagColor: "#00D4FF",
+      tagColor: "#00B4D8",
       bio:
         language === "id"
           ? "Perancang prosesor neuromorfik ultra-hemat daya generasi 5nm yang memungkinkan komputasi model AI langsung pada perangkat cerdas."
@@ -138,8 +138,8 @@ export function SpeakersSection() {
   ];
 
   return (
-    <section id="speakers" className="relative py-24 md:py-32 border-t border-white/[0.08] bg-[#050505] overflow-hidden">
-      <div className="absolute top-1/2 left-1/3 w-[700px] h-[500px] bg-[#087BFF]/7 blur-[180px] rounded-full pointer-events-none" />
+    <section id="speakers" className="relative py-24 md:py-32 border-t border-slate-200 dark:border-white/[0.08] bg-slate-50/50 dark:bg-[#050505] overflow-hidden">
+      <div className="absolute top-1/2 left-1/3 w-[700px] h-[500px] bg-[#0066FF]/6 dark:bg-[#087BFF]/7 blur-[180px] rounded-full pointer-events-none" />
 
       <Container className="relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-20">
@@ -149,16 +149,16 @@ export function SpeakersSection() {
                 {t.kicker}
               </span>
             </Badge>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-[1.15] mb-4">
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.15] mb-4">
               {t.title}
             </h2>
-            <p className="text-[#A1A1AA] text-base sm:text-lg font-light leading-relaxed">
+            <p className="text-slate-600 dark:text-[#A1A1AA] text-base sm:text-lg font-light leading-relaxed">
               {t.desc}
             </p>
           </div>
           <div className="mt-6 md:mt-0">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/[0.03] border border-white/[0.08] text-[#A1A1AA]">
-              <Sparkles className="w-3.5 h-3.5 text-[#00D4FF]" />
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.08] text-slate-700 dark:text-[#A1A1AA] shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-[#0066FF] dark:text-[#00D4FF]" />
               {t.announcedCount}
             </span>
           </div>
@@ -168,14 +168,14 @@ export function SpeakersSection() {
           {speakers.map((speaker) => (
             <div
               key={speaker.id}
-              className="relative p-6 sm:p-8 rounded-2xl bg-[#0B0D12]/90 border border-white/[0.08] backdrop-blur-xl group hover:border-[#087BFF]/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between"
+              className="relative p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#0B0D12]/90 border border-slate-200/90 dark:border-white/[0.08] backdrop-blur-xl group hover:border-[#0066FF]/40 dark:hover:border-[#087BFF]/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between shadow-sm hover:shadow-md"
             >
               <div>
                 <div className="relative mb-6 flex items-center justify-between">
-                  <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-[#087BFF]/20 to-[#00D4FF]/20 p-[1px] border border-white/10 group-hover:border-[#00D4FF]/50 transition-colors overflow-hidden">
-                    <div className="w-full h-full bg-[#050505] rounded-[15px] flex items-center justify-center relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#087BFF]/20 to-transparent pointer-events-none" />
-                      <span className="text-2xl font-mono font-bold text-white/90 group-hover:scale-110 group-hover:text-[#00D4FF] transition-all">
+                  <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-[#0066FF]/20 to-[#00B4D8]/20 p-[1px] border border-slate-200 dark:border-white/10 group-hover:border-[#0066FF]/50 transition-colors overflow-hidden">
+                    <div className="w-full h-full bg-slate-50 dark:bg-[#050505] rounded-[15px] flex items-center justify-center relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0066FF]/10 to-transparent pointer-events-none" />
+                      <span className="text-2xl font-mono font-bold text-slate-800 dark:text-white/90 group-hover:scale-110 group-hover:text-[#0066FF] dark:group-hover:text-[#00D4FF] transition-all">
                         {speaker.name
                           .split(" ")
                           .map((n) => n[0])
@@ -186,34 +186,34 @@ export function SpeakersSection() {
                   </div>
 
                   <span
-                    className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full border backdrop-blur-md"
+                    className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full border backdrop-blur-md font-semibold"
                     style={{
                       color: speaker.tagColor,
                       borderColor: `${speaker.tagColor}40`,
-                      backgroundColor: `${speaker.tagColor}12`,
+                      backgroundColor: `${speaker.tagColor}10`,
                     }}
                   >
                     {speaker.tag}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-[#00D4FF] transition-colors">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1 group-hover:text-[#0066FF] dark:group-hover:text-[#00D4FF] transition-colors">
                   {speaker.name}
                 </h3>
-                <div className="text-xs font-mono text-[#087BFF] mb-1">
+                <div className="text-xs font-mono text-[#0066FF] dark:text-[#087BFF] mb-1 font-semibold">
                   {speaker.role}
                 </div>
-                <div className="text-xs font-mono text-[#A1A1AA] mb-4">
+                <div className="text-xs font-mono text-slate-500 dark:text-[#A1A1AA] mb-4">
                   {speaker.company}
                 </div>
 
-                <p className="text-xs sm:text-sm text-[#A1A1AA] leading-relaxed font-light mb-6">
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-[#A1A1AA] leading-relaxed font-light mb-6">
                   {speaker.bio}
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between">
-                <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest">
+              <div className="pt-4 border-t border-slate-200 dark:border-white/[0.06] flex items-center justify-between">
+                <span className="text-[10px] font-mono text-slate-400 dark:text-white/40 uppercase tracking-widest font-semibold">
                   {t.keynoteBadge}
                 </span>
                 <div className="flex items-center gap-3">
@@ -222,7 +222,7 @@ export function SpeakersSection() {
                       href={speaker.socials.twitter}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#A1A1AA] hover:text-[#00D4FF] transition-colors p-1"
+                      className="text-slate-400 dark:text-[#A1A1AA] hover:text-[#0066FF] dark:hover:text-[#00D4FF] transition-colors p-1"
                       aria-label="Twitter profile"
                     >
                       <TwitterIcon className="w-3.5 h-3.5" />
@@ -233,7 +233,7 @@ export function SpeakersSection() {
                       href={speaker.socials.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#A1A1AA] hover:text-[#087BFF] transition-colors p-1"
+                      className="text-slate-400 dark:text-[#A1A1AA] hover:text-[#0066FF] dark:hover:text-[#087BFF] transition-colors p-1"
                       aria-label="LinkedIn profile"
                     >
                       <LinkedinIcon className="w-3.5 h-3.5" />
@@ -244,7 +244,7 @@ export function SpeakersSection() {
                       href={speaker.socials.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#A1A1AA] hover:text-white transition-colors p-1"
+                      className="text-slate-400 dark:text-[#A1A1AA] hover:text-slate-900 dark:hover:text-white transition-colors p-1"
                       aria-label="GitHub profile"
                     >
                       <GithubIcon className="w-3.5 h-3.5" />

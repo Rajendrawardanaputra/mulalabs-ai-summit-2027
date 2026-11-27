@@ -1,10 +1,12 @@
 "use client";
 
 import * as React from "react";
+import { useTheme } from "@/contexts/theme-context";
 
 export function HeroVisual() {
   const containerRef = React.useRef<HTMLDivElement | null>(null);
   const canvasRef = React.useRef<HTMLCanvasElement | null>(null);
+  const { theme } = useTheme();
 
   React.useEffect(() => {
     const canvas = canvasRef.current;
@@ -17,7 +19,6 @@ export function HeroVisual() {
     let animationFrameId: number;
     let isVisible = true;
 
-    // Handle high DPI display scaling cleanly without performance degradation
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     let width = (canvas.width = container.offsetWidth * dpr);
     let height = (canvas.height = container.offsetHeight * dpr);
@@ -30,7 +31,6 @@ export function HeroVisual() {
 
     window.addEventListener("resize", handleResize);
 
-    // Performance optimization: Pause render loop when off-screen
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -41,7 +41,6 @@ export function HeroVisual() {
     );
     observer.observe(container);
 
-    // 3D Neural Points Generation
     const numPoints = 85;
     const radius = Math.min(width, height) * 0.35;
     const points: { x: number; y: number; z: number; origX: number; origY: number; origZ: number }[] = [];
@@ -60,7 +59,6 @@ export function HeroVisual() {
     let targetAngleX = 0;
     let targetAngleY = 0;
 
-    // Mouse Parallax
     const handleMouseMove = (e: MouseEvent) => {
       const rect = container.getBoundingClientRect();
       const mouseX = e.clientX - rect.left - rect.width / 2;
@@ -69,7 +67,6 @@ export function HeroVisual() {
       targetAngleX = (-mouseY / rect.height) * 1.2;
     };
 
-    // Mobile Touch Gesture Support
     let touchStartX = 0;
     let touchStartY = 0;
 
@@ -93,11 +90,12 @@ export function HeroVisual() {
     container.addEventListener("touchstart", handleTouchStart, { passive: true });
     container.addEventListener("touchmove", handleTouchMove, { passive: true });
 
+    const isDark = document.documentElement.classList.contains("dark");
+
     const render = () => {
       if (isVisible) {
         ctx.clearRect(0, 0, width, height);
 
-        // Smooth inertia rotation
         angleX += (targetAngleX - angleX) * 0.05 + 0.002;
         angleY += (targetAngleY - angleY) * 0.05 + 0.003;
 
@@ -137,8 +135,10 @@ export function HeroVisual() {
             const dist = Math.sqrt(dx * dx + dy * dy);
 
             if (dist < 75 * dpr) {
-              const lineAlpha = (1 - dist / (75 * dpr)) * Math.min(p1.alpha, p2.alpha) * 0.45;
-              ctx.strokeStyle = "rgba(0, 212, 255, " + lineAlpha + ")";
+              const lineAlpha = (1 - dist / (75 * dpr)) * Math.min(p1.alpha, p2.alpha) * (isDark ? 0.45 : 0.6);
+              ctx.strokeStyle = isDark
+                ? "rgba(0, 212, 255, " + lineAlpha + ")"
+                : "rgba(0, 102, 255, " + lineAlpha + ")";
               ctx.beginPath();
               ctx.moveTo(p1.px, p1.py);
               ctx.lineTo(p2.px, p2.py);
@@ -147,20 +147,20 @@ export function HeroVisual() {
           }
         }
 
-        // Outer Holographic Orbit Rings
+        // Orbit Rings
         ctx.save();
         ctx.translate(width / 2, height / 2);
         ctx.rotate(angleY * 0.5);
 
         ctx.beginPath();
         ctx.ellipse(0, 0, radius * 1.25, radius * 0.45, angleX, 0, Math.PI * 2);
-        ctx.strokeStyle = "rgba(0, 212, 255, 0.18)";
+        ctx.strokeStyle = isDark ? "rgba(0, 212, 255, 0.18)" : "rgba(0, 102, 255, 0.25)";
         ctx.lineWidth = 1.2 * dpr;
         ctx.stroke();
 
         ctx.beginPath();
         ctx.ellipse(0, 0, radius * 1.1, radius * 0.6, -angleX * 1.2, 0, Math.PI * 2);
-        ctx.strokeStyle = "rgba(8, 123, 255, 0.22)";
+        ctx.strokeStyle = isDark ? "rgba(8, 123, 255, 0.22)" : "rgba(0, 180, 216, 0.25)";
         ctx.lineWidth = 1 * dpr;
         ctx.stroke();
 
@@ -173,9 +173,14 @@ export function HeroVisual() {
 
           ctx.beginPath();
           ctx.arc(p.px, p.py, pointSize, 0, Math.PI * 2);
-          ctx.fillStyle = p.pz > 0 ? "rgba(0, 212, 255, 0.95)" : "rgba(8, 123, 255, 0.6)";
-          ctx.shadowColor = "#00D4FF";
-          ctx.shadowBlur = p.pz > 0 ? 10 * dpr : 3 * dpr;
+          if (isDark) {
+            ctx.fillStyle = p.pz > 0 ? "rgba(0, 212, 255, 0.95)" : "rgba(8, 123, 255, 0.6)";
+            ctx.shadowColor = "#00D4FF";
+          } else {
+            ctx.fillStyle = p.pz > 0 ? "rgba(0, 102, 255, 0.95)" : "rgba(0, 180, 216, 0.75)";
+            ctx.shadowColor = "#0066FF";
+          }
+          ctx.shadowBlur = p.pz > 0 ? 8 * dpr : 2 * dpr;
           ctx.fill();
           ctx.shadowBlur = 0;
         }
@@ -194,7 +199,7 @@ export function HeroVisual() {
       observer.disconnect();
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [theme]);
 
   return (
     <div
@@ -203,16 +208,16 @@ export function HeroVisual() {
       role="img"
       aria-label="Interactive 3D Neural Sphere visualization of Mulalabs AI"
     >
-      <div className="absolute w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] rounded-full bg-gradient-to-tr from-[#087BFF]/25 via-[#00D4FF]/20 to-transparent blur-3xl pointer-events-none" />
-      <div className="absolute w-24 h-24 rounded-full bg-gradient-to-r from-[#087BFF] to-[#00D4FF] opacity-25 blur-2xl pointer-events-none" />
+      <div className="absolute w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] rounded-full bg-gradient-to-tr from-[#0066FF]/20 via-[#00B4D8]/15 to-transparent dark:from-[#087BFF]/25 dark:via-[#00D4FF]/20 blur-3xl pointer-events-none" />
+      <div className="absolute w-24 h-24 rounded-full bg-gradient-to-r from-[#0066FF] to-[#00B4D8] dark:from-[#087BFF] dark:to-[#00D4FF] opacity-25 blur-2xl pointer-events-none" />
 
       <canvas
         ref={canvasRef}
         className="w-full h-full relative z-10 cursor-grab active:cursor-grabbing"
       />
 
-      <div className="absolute bottom-4 right-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-md bg-black/70 border border-white/10 backdrop-blur-md text-[10px] font-mono text-[#00D4FF]">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] animate-ping" />
+      <div className="absolute bottom-4 right-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/80 dark:bg-black/70 border border-slate-200 dark:border-white/10 backdrop-blur-md text-[10px] font-mono text-[#0066FF] dark:text-[#00D4FF] shadow-sm">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#0066FF] dark:bg-[#00D4FF] animate-ping" />
         <span>INTERACTIVE NEURAL CORE 3D</span>
       </div>
     </div>

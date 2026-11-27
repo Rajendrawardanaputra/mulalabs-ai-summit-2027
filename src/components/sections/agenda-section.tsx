@@ -144,21 +144,21 @@ export function AgendaSection() {
   const getCategoryBadgeClass = (category: Session["category"]) => {
     switch (category) {
       case "Keynote":
-        return "bg-[#087BFF]/15 text-[#087BFF] border-[#087BFF]/30";
+        return "bg-blue-50 dark:bg-[#087BFF]/15 text-[#0066FF] dark:text-[#087BFF] border-blue-200 dark:border-[#087BFF]/30";
       case "Technical":
-        return "bg-[#00D4FF]/15 text-[#00D4FF] border-[#00D4FF]/30";
+        return "bg-cyan-50 dark:bg-[#00D4FF]/15 text-[#00A3FF] dark:text-[#00D4FF] border-cyan-200 dark:border-[#00D4FF]/30";
       case "Panel":
-        return "bg-purple-500/15 text-purple-400 border-purple-500/30";
+        return "bg-purple-50 dark:bg-purple-500/15 text-purple-600 dark:text-purple-400 border-purple-200 dark:border-purple-500/30";
       case "Pitch":
-        return "bg-emerald-500/15 text-emerald-400 border-emerald-500/30";
+        return "bg-emerald-50 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-200 dark:border-emerald-500/30";
       default:
-        return "bg-white/10 text-white border-white/20";
+        return "bg-slate-100 dark:bg-white/10 text-slate-800 dark:text-white border-slate-200 dark:border-white/20";
     }
   };
 
   return (
-    <section id="agenda" className="relative py-24 md:py-32 border-t border-white/[0.08] bg-[#050505] overflow-hidden">
-      <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-[#00D4FF]/8 blur-[160px] rounded-full pointer-events-none" />
+    <section id="agenda" className="relative py-24 md:py-32 border-t border-slate-200 dark:border-white/[0.08] bg-white dark:bg-[#050505] overflow-hidden">
+      <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-[#00B4D8]/6 dark:bg-[#00D4FF]/8 blur-[160px] rounded-full pointer-events-none" />
 
       <Container className="relative z-10">
         <div className="max-w-3xl mb-14 md:mb-16">
@@ -167,15 +167,15 @@ export function AgendaSection() {
               {t.kicker}
             </span>
           </Badge>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-[1.15] mb-4">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.15] mb-4">
             {t.title}
           </h2>
-          <p className="text-[#A1A1AA] text-base sm:text-lg font-light leading-relaxed">
+          <p className="text-slate-600 dark:text-[#A1A1AA] text-base sm:text-lg font-light leading-relaxed">
             {t.desc}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10 p-2 rounded-2xl bg-[#0B0D12] border border-white/[0.08]">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10 p-2 rounded-2xl bg-slate-100 dark:bg-[#0B0D12] border border-slate-200 dark:border-white/[0.08]">
           {[1, 2, 3].map((dayNum) => {
             const dayKey = dayNum as 1 | 2 | 3;
             const item = schedule[dayKey];
@@ -187,19 +187,19 @@ export function AgendaSection() {
                 onClick={() => setActiveDay(dayKey)}
                 className={`p-4 sm:p-5 rounded-xl text-left transition-all duration-300 cursor-pointer flex flex-col justify-between ${
                   isActive
-                    ? "bg-[#087BFF]/15 border border-[#087BFF]/50 shadow-[0_0_25px_rgba(8,123,255,0.25)] text-white"
-                    : "bg-transparent border border-transparent text-[#A1A1AA] hover:text-white hover:bg-white/[0.02]"
+                    ? "bg-white dark:bg-[#087BFF]/15 border border-slate-300 dark:border-[#087BFF]/50 shadow-sm dark:shadow-[0_0_25px_rgba(8,123,255,0.25)] text-slate-900 dark:text-white"
+                    : "bg-transparent border border-transparent text-slate-600 dark:text-[#A1A1AA] hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-white/[0.02]"
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className={`font-mono text-xs font-bold uppercase tracking-wider ${
-                    isActive ? "text-[#00D4FF]" : "text-[#A1A1AA]"
+                    isActive ? "text-[#0066FF] dark:text-[#00D4FF]" : "text-slate-500 dark:text-[#A1A1AA]"
                   }`}>
                     Day 0{dayNum}
                   </span>
                   <span className="text-[11px] font-mono opacity-80">{item.date}</span>
                 </div>
-                <div className="text-sm sm:text-base font-semibold text-white tracking-tight line-clamp-1">
+                <div className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white tracking-tight line-clamp-1">
                   {language === "id" ? item.themeId : item.themeEn}
                 </div>
               </button>
@@ -208,15 +208,15 @@ export function AgendaSection() {
         </div>
 
         <div className="flex flex-wrap items-center gap-2 mb-10">
-          <span className="text-xs font-mono text-[#A1A1AA] mr-2">{t.filterLabel}</span>
+          <span className="text-xs font-mono text-slate-500 dark:text-[#A1A1AA] mr-2">{t.filterLabel}</span>
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
               className={`px-3.5 py-1 rounded-full text-xs font-mono transition-all duration-200 cursor-pointer border ${
                 selectedCategory === cat
-                  ? "bg-white text-black border-white font-semibold"
-                  : "bg-white/[0.04] text-[#A1A1AA] border-white/[0.08] hover:text-white hover:border-white/20"
+                  ? "bg-[#0066FF] text-white border-[#0066FF] font-semibold shadow-sm"
+                  : "bg-white dark:bg-white/[0.04] text-slate-600 dark:text-[#A1A1AA] border-slate-200 dark:border-white/[0.08] hover:text-slate-900 dark:hover:text-white hover:border-slate-300 dark:hover:border-white/20"
               }`}
             >
               {cat === "All" ? t.all : cat}
@@ -228,16 +228,16 @@ export function AgendaSection() {
           {filteredSessions.map((session) => (
             <div
               key={session.id}
-              className="p-6 sm:p-8 rounded-2xl bg-[#0B0D12]/80 border border-white/[0.08] backdrop-blur-xl hover:border-white/20 transition-all duration-300 group"
+              className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#0B0D12]/80 border border-slate-200/90 dark:border-white/[0.08] backdrop-blur-xl hover:border-slate-300 dark:hover:border-white/20 transition-all duration-300 group shadow-sm hover:shadow-md"
             >
               <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
                 <div className="lg:w-64 shrink-0 flex flex-col gap-2.5">
-                  <div className="inline-flex items-center gap-2 text-sm font-mono text-white font-semibold">
-                    <Clock className="w-4 h-4 text-[#00D4FF]" />
+                  <div className="inline-flex items-center gap-2 text-sm font-mono text-slate-900 dark:text-white font-semibold">
+                    <Clock className="w-4 h-4 text-[#0066FF] dark:text-[#00D4FF]" />
                     <span>{session.time}</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 text-xs font-mono text-[#A1A1AA]">
-                    <MapPin className="w-3.5 h-3.5 text-[#087BFF]" />
+                  <div className="inline-flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-[#A1A1AA]">
+                    <MapPin className="w-3.5 h-3.5 text-[#0066FF]" />
                     <span>{session.stage}</span>
                   </div>
                   <div>
@@ -252,20 +252,20 @@ export function AgendaSection() {
                 </div>
 
                 <div className="flex-1">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-[#00D4FF] transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-[#0066FF] dark:group-hover:text-[#00D4FF] transition-colors">
                     {language === "id" ? session.titleId : session.titleEn}
                   </h3>
-                  <p className="text-sm text-[#A1A1AA] leading-relaxed mb-6 font-light">
+                  <p className="text-sm text-slate-600 dark:text-[#A1A1AA] leading-relaxed mb-6 font-light">
                     {language === "id" ? session.descId : session.descEn}
                   </p>
 
-                  <div className="inline-flex items-center gap-3 p-2.5 px-4 rounded-xl bg-white/[0.03] border border-white/[0.08]">
-                    <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-[#087BFF] to-[#00D4FF] flex items-center justify-center font-mono font-bold text-black text-xs">
+                  <div className="inline-flex items-center gap-3 p-2.5 px-4 rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.08]">
+                    <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-[#0066FF] to-[#00B4D8] flex items-center justify-center font-mono font-bold text-white text-xs">
                       {session.speaker.slice(0, 1)}
                     </div>
                     <div>
-                      <div className="text-xs font-semibold text-white">{session.speaker}</div>
-                      <div className="text-[11px] font-mono text-[#A1A1AA]">{session.speakerRole}</div>
+                      <div className="text-xs font-semibold text-slate-900 dark:text-white">{session.speaker}</div>
+                      <div className="text-[11px] font-mono text-slate-500 dark:text-[#A1A1AA]">{session.speakerRole}</div>
                     </div>
                   </div>
                 </div>

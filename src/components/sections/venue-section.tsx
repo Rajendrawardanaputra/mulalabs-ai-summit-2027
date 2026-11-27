@@ -72,8 +72,8 @@ export function VenueSection() {
   ];
 
   return (
-    <section id="venue" className="relative py-24 md:py-32 border-t border-white/[0.08] bg-[#050505] overflow-hidden">
-      <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-[#00D4FF]/7 blur-[180px] rounded-full pointer-events-none" />
+    <section id="venue" className="relative py-24 md:py-32 border-t border-slate-200 dark:border-white/[0.08] bg-white dark:bg-[#050505] overflow-hidden">
+      <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-[#00B4D8]/6 dark:bg-[#00D4FF]/7 blur-[180px] rounded-full pointer-events-none" />
 
       <Container className="relative z-10">
         <div className="max-w-3xl mb-16 md:mb-20">
@@ -82,37 +82,37 @@ export function VenueSection() {
               {t.kicker}
             </span>
           </Badge>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-[1.15] mb-4">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.15] mb-4">
             {t.title}
           </h2>
-          <p className="text-[#A1A1AA] text-base sm:text-lg font-light leading-relaxed">
+          <p className="text-slate-600 dark:text-[#A1A1AA] text-base sm:text-lg font-light leading-relaxed">
             {t.desc}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch mb-20">
           <div className="lg:col-span-6 flex flex-col justify-between">
-            <div className="p-8 rounded-2xl bg-[#0B0D12]/90 border border-white/[0.08] backdrop-blur-xl mb-8">
-              <div className="flex items-center gap-3 text-xs font-mono text-[#00D4FF] mb-4">
-                <MapPin className="w-4 h-4 text-[#087BFF]" />
+            <div className="p-8 rounded-2xl bg-slate-50 dark:bg-[#0B0D12]/90 border border-slate-200 dark:border-white/[0.08] backdrop-blur-xl mb-8 shadow-sm">
+              <div className="flex items-center gap-3 text-xs font-mono text-[#0066FF] dark:text-[#00D4FF] mb-4 font-semibold">
+                <MapPin className="w-4 h-4 text-[#0066FF]" />
                 <span>JIEXPO KEMAYORAN, JAKARTA UTARA, INDONESIA</span>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
                 Grand Ballroom & Tech Halls A-C
               </h3>
-              <p className="text-sm text-[#A1A1AA] leading-relaxed font-light mb-6">
+              <p className="text-sm text-slate-600 dark:text-[#A1A1AA] leading-relaxed font-light mb-6">
                 {language === "id"
                   ? "Dipilih khusus untuk memberikan pengalaman konferensi yang imersif dan nyaman bagi ribuan delegasi dari 25+ negara."
                   : "Chosen deliberately to provide an immersive, world-class conference atmosphere for thousands of delegates from 25+ nations."}
               </p>
 
-              <div className="space-y-4 pt-4 border-t border-white/[0.06]">
+              <div className="space-y-4 pt-4 border-t border-slate-200 dark:border-white/[0.06]">
                 {venueFeatures.map((feat) => (
                   <div key={feat.title} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#00D4FF] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#0066FF] dark:text-[#00D4FF] shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="text-xs font-semibold text-white font-mono">{feat.title}</h4>
-                      <p className="text-xs text-[#A1A1AA] font-light mt-0.5">{feat.desc}</p>
+                      <h4 className="text-xs font-semibold text-slate-900 dark:text-white font-mono">{feat.title}</h4>
+                      <p className="text-xs text-slate-600 dark:text-[#A1A1AA] font-light mt-0.5">{feat.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -136,51 +136,51 @@ export function VenueSection() {
             </div>
           </div>
 
-          <div className="lg:col-span-6 relative p-8 rounded-2xl bg-[#0B0D12] border border-white/[0.1] backdrop-blur-xl flex flex-col justify-between overflow-hidden">
-            <div className="absolute inset-0 bg-grid-cyber opacity-40 pointer-events-none" />
-            <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-[#087BFF]/15 blur-3xl rounded-full pointer-events-none" />
+          <div className="lg:col-span-6 relative p-8 rounded-2xl bg-slate-900 dark:bg-[#0B0D12] border border-slate-800 dark:border-white/[0.1] text-white backdrop-blur-xl flex flex-col justify-between overflow-hidden shadow-xl">
+            <div className="absolute inset-0 bg-grid-cyber opacity-30 pointer-events-none" />
+            <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-[#0066FF]/20 blur-3xl rounded-full pointer-events-none" />
 
             <div>
-              <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/[0.08]">
+              <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/[0.1]">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
                   <span className="font-mono text-xs text-white uppercase tracking-wider">
                     {t.blueprintTitle}
                   </span>
                 </div>
-                <span className="font-mono text-[10px] text-[#A1A1AA]">
+                <span className="font-mono text-[10px] text-slate-400">
                   6.1462° S, 106.8488° E
                 </span>
               </div>
 
               <div className="grid grid-cols-2 gap-4 mb-8">
-                <div className="p-4 rounded-xl bg-black/60 border border-[#087BFF]/30">
+                <div className="p-4 rounded-xl bg-black/60 border border-[#0066FF]/40">
                   <span className="text-[10px] font-mono text-[#00D4FF] block mb-1">ZONE 01</span>
                   <div className="text-sm font-bold text-white mb-1">Grand Main Hall</div>
-                  <div className="text-[11px] font-mono text-[#A1A1AA]">Keynotes & Opening</div>
+                  <div className="text-[11px] font-mono text-slate-400">Keynotes & Opening</div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-black/60 border border-[#00D4FF]/30">
+                <div className="p-4 rounded-xl bg-black/60 border border-[#00B4D8]/40">
                   <span className="text-[10px] font-mono text-[#00D4FF] block mb-1">ZONE 02</span>
                   <div className="text-sm font-bold text-white mb-1">Cyber Tech Stage</div>
-                  <div className="text-[11px] font-mono text-[#A1A1AA]">Quantum & Chips Deep Dives</div>
+                  <div className="text-[11px] font-mono text-slate-400">Quantum & Chips Deep Dives</div>
                 </div>
 
                 <div className="p-4 rounded-xl bg-black/60 border border-white/10">
-                  <span className="text-[10px] font-mono text-[#A1A1AA] block mb-1">ZONE 03</span>
+                  <span className="text-[10px] font-mono text-slate-400 block mb-1">ZONE 03</span>
                   <div className="text-sm font-bold text-white mb-1">Venture Arena</div>
-                  <div className="text-[11px] font-mono text-[#A1A1AA]">$500K Pitch Competition</div>
+                  <div className="text-[11px] font-mono text-slate-400">$500K Pitch Competition</div>
                 </div>
 
                 <div className="p-4 rounded-xl bg-black/60 border border-white/10">
-                  <span className="text-[10px] font-mono text-[#A1A1AA] block mb-1">ZONE 04</span>
+                  <span className="text-[10px] font-mono text-slate-400 block mb-1">ZONE 04</span>
                   <div className="text-sm font-bold text-white mb-1">Expo & Demos Plaza</div>
-                  <div className="text-[11px] font-mono text-[#A1A1AA]">100+ Hands-on Showcases</div>
+                  <div className="text-[11px] font-mono text-slate-400">100+ Hands-on Showcases</div>
                 </div>
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#087BFF]/10 border border-[#087BFF]/20 flex items-center justify-between text-xs font-mono text-[#00D4FF]">
+            <div className="p-4 rounded-xl bg-[#0066FF]/20 border border-[#0066FF]/40 flex items-center justify-between text-xs font-mono text-[#00D4FF]">
               <span>{t.simultaneousNote}</span>
               <Sparkles className="w-4 h-4 text-[#00D4FF]" />
             </div>
@@ -188,7 +188,7 @@ export function VenueSection() {
         </div>
 
         <div>
-          <h3 className="text-xl sm:text-2xl font-bold text-white mb-8">
+          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-8">
             {t.travelTitle}
           </h3>
 
@@ -198,13 +198,13 @@ export function VenueSection() {
               return (
                 <div
                   key={guide.title}
-                  className="p-6 rounded-xl bg-[#0B0D12]/60 border border-white/[0.06] hover:border-white/20 transition-all group"
+                  className="p-6 rounded-xl bg-slate-50 dark:bg-[#0B0D12]/60 border border-slate-200/80 dark:border-white/[0.06] hover:border-slate-300 dark:hover:border-white/20 transition-all group shadow-sm"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-[#087BFF]/10 border border-[#087BFF]/30 flex items-center justify-center text-[#087BFF] mb-4 group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-[#087BFF]/10 border border-blue-200 dark:border-[#087BFF]/30 flex items-center justify-center text-[#0066FF] dark:text-[#087BFF] mb-4 group-hover:scale-110 transition-transform">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h4 className="text-base font-semibold text-white mb-2">{guide.title}</h4>
-                  <p className="text-xs sm:text-sm text-[#A1A1AA] leading-relaxed font-light">
+                  <h4 className="text-base font-semibold text-slate-900 dark:text-white mb-2">{guide.title}</h4>
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-[#A1A1AA] leading-relaxed font-light">
                     {guide.desc}
                   </p>
                 </div>

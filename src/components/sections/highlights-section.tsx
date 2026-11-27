@@ -18,7 +18,7 @@ export function HighlightsSection() {
   const t = TRANSLATIONS[language].highlights;
 
   const trackIcons = [BrainCircuit, Orbit, Network, Binary, Rocket];
-  const accents = ["#087BFF", "#00D4FF", "#087BFF", "#00D4FF", "#087BFF"];
+  const accents = ["#0066FF", "#00B4D8", "#0066FF", "#00B4D8", "#0066FF"];
 
   const topicLists = [
     ["Multimodal Neural Synthesis", "Autonomous Reasoning Systems", "Sparse Mixture of Experts"],
@@ -29,8 +29,8 @@ export function HighlightsSection() {
   ];
 
   return (
-    <section id="highlights" className="relative py-24 md:py-32 border-t border-white/[0.08] bg-[#050505] overflow-hidden">
-      <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-[#087BFF]/8 blur-[160px] rounded-full pointer-events-none" />
+    <section id="highlights" className="relative py-24 md:py-32 border-t border-slate-200 dark:border-white/[0.08] bg-white dark:bg-[#050505] overflow-hidden">
+      <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-[#0066FF]/6 dark:bg-[#087BFF]/8 blur-[160px] rounded-full pointer-events-none" />
 
       <Container className="relative z-10">
         <div className="max-w-3xl mb-16 md:mb-20">
@@ -39,10 +39,10 @@ export function HighlightsSection() {
               {t.kicker}
             </span>
           </Badge>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-[1.15] mb-6">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.15] mb-6">
             {t.title}
           </h2>
-          <p className="text-[#A1A1AA] text-base sm:text-lg leading-relaxed font-light">
+          <p className="text-slate-600 dark:text-[#A1A1AA] text-base sm:text-lg leading-relaxed font-light">
             {t.desc}
           </p>
         </div>
@@ -56,8 +56,8 @@ export function HighlightsSection() {
             return (
               <div
                 key={track.title}
-                className={`relative p-8 rounded-2xl bg-[#0B0D12]/80 border border-white/[0.08] backdrop-blur-xl flex flex-col justify-between transition-all duration-300 hover:border-white/20 group hover:-translate-y-1.5 ${
-                  isFeatured ? "md:col-span-2 lg:col-span-1 border-white/[0.12] bg-[#0B0D12]" : ""
+                className={`relative p-8 rounded-2xl bg-slate-50/80 dark:bg-[#0B0D12]/80 border border-slate-200/90 dark:border-white/[0.08] backdrop-blur-xl flex flex-col justify-between transition-all duration-300 hover:border-[#0066FF]/40 dark:hover:border-white/20 group hover:-translate-y-1.5 shadow-sm hover:shadow-md ${
+                  isFeatured ? "md:col-span-2 lg:col-span-1 border-blue-200/80 dark:border-white/[0.12] bg-white dark:bg-[#0B0D12]" : ""
                 }`}
               >
                 <div
@@ -70,9 +70,9 @@ export function HighlightsSection() {
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center"
+                      className="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm"
                       style={{
-                        backgroundColor: `${accent}15`,
+                        backgroundColor: `${accent}12`,
                         borderColor: `${accent}30`,
                         borderWidth: "1px",
                         color: accent,
@@ -80,36 +80,36 @@ export function HighlightsSection() {
                     >
                       <Icon className="w-6 h-6 group-hover:scale-110 transition-transform" />
                     </div>
-                    <span className="text-xs font-mono text-[#A1A1AA]">
+                    <span className="text-xs font-mono text-slate-400 dark:text-[#A1A1AA]">
                       [TRACK 0{index + 1}]
                     </span>
                   </div>
 
                   <span
-                    className="text-xs font-mono uppercase tracking-wider block mb-2"
+                    className="text-xs font-mono uppercase tracking-wider block mb-2 font-semibold"
                     style={{ color: accent }}
                   >
                     {track.tagline}
                   </span>
 
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4">
                     {track.title}
                   </h3>
 
-                  <p className="text-sm text-[#A1A1AA] leading-relaxed mb-6 font-light">
+                  <p className="text-sm text-slate-600 dark:text-[#A1A1AA] leading-relaxed mb-6 font-light">
                     {track.desc}
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-white/[0.06]">
-                  <span className="text-[10px] font-mono uppercase text-[#A1A1AA] tracking-wider block mb-3">
+                <div className="pt-6 border-t border-slate-200 dark:border-white/[0.06]">
+                  <span className="text-[10px] font-mono uppercase text-slate-400 dark:text-[#A1A1AA] tracking-wider block mb-3 font-semibold">
                     {t.keyTopicsLabel}
                   </span>
                   <ul className="space-y-2">
                     {topicLists[index].map((topic) => (
                       <li
                         key={topic}
-                        className="flex items-center gap-2 text-xs text-white/80 font-mono"
+                        className="flex items-center gap-2 text-xs text-slate-700 dark:text-white/80 font-mono"
                       >
                         <span
                           className="w-1.5 h-1.5 rounded-full"
